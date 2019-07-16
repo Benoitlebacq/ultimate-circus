@@ -1,0 +1,12 @@
+h1 {
+  font-family: "Creepster", cursive;
+  color: red;
+  font-size: 50px;
+  text-shadow: 2px 1px 2px black;
+}
+h3 {
+  font-family: "Creepster", cursive;
+  color: red;
+  font-size: 32px;
+  text-shadow: 2px 2px 2.5px black;
+}

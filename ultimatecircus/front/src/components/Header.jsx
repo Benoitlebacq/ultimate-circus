@@ -7,10 +7,19 @@ export default class Header extends Component {
     return (
       <div className="ui secondary pointing menu">
         <Link exact to="/" className="item">
-          WILD CIRCUS 2.0
+          <img
+            src="http://icons.iconarchive.com/icons/flat-icons.com/flat/256/Circus-icon.png"
+            alt="home icone"
+          />
         </Link>
         <div className="right menu" />
         <Link exact to="/tickets" className="item">
+          Buy Tickets
+        </Link>
+        <Link exact to="/acts" className="item">
+          Circus Acts
+        </Link>
+        <Link exact to="/shopping" className="item">
           <i ria-hidden="true" className="red shopping cart large icon" />
         </Link>
 
