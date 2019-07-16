@@ -56,7 +56,7 @@ class GoogleAuth extends Component {
   };
 
   render() {
-    return <div>{this.renderAuthButton()}</div>;
+    return <div className="google-logo">{this.renderAuthButton()}</div>;
   }
 }
 const mapStateToProps = state => {

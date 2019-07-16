@@ -15,7 +15,7 @@ function App() {
         <div>
           <Route path="/" exact component={Home} />
           <Route path="/tickets" exact component={Tickets} />
-          <Route path="/shopping" exact component={ShoppingCart} />
+          <Route path="/shopping" component={ShoppingCart} />
           <Route path="/acts" exact component={CircusAct} />
         </div>
       </BrowserRouter>

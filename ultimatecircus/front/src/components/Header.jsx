@@ -19,9 +19,6 @@ export default class Header extends Component {
         <Link exact to="/acts" className="item">
           Circus Acts
         </Link>
-        <Link exact to="/shopping" className="item">
-          <i ria-hidden="true" className="red shopping cart large icon" />
-        </Link>
 
         <GoogleAuth />
       </div>

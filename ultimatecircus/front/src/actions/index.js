@@ -10,3 +10,10 @@ export const signOut = () => {
     type: "SIGN_OUT"
   };
 };
+
+export const shoppin = ticket => {
+  return {
+    type: "SHOP_IN",
+    payload: ticket
+  };
+};
