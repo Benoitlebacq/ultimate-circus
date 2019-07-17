@@ -1,0 +1,47 @@
+.welldone {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Creepster", cursive;
+  color: red;
+  font-size: 5vh;
+  text-shadow: 2px 2px 2.5px black;
+  text-align: center;
+}
+
+.sumup {
+  padding-top: 10px;
+  font-family: "Creepster", cursive;
+  color: red;
+  text-shadow: 2px 2px 2.5px black;
+  text-align: center;
+  font-size: 3vh;
+}
+.happy-clown-image {
+  width: 40vh;
+}
+
+.empty-cart {
+  font-family: "Creepster", cursive;
+  color: red;
+  font-size: 2.7vh;
+  text-shadow: 2px 2px 2.5px black;
+  padding-top: 10px;
+  padding-left: auto;
+  text-align: center;
+}
+
+.ticketsBought {
+  text-align: center;
+  font-size: 2.5vh;
+  font-weight: bold;
+  font-family: "Nosifer", cursive;
+}
+.email {
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-position {
+  position: relative;
+  margin: auto;
+}

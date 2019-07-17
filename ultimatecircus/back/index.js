@@ -1,31 +1,36 @@
 const express = require("express");
 const app = express();
 const nodemailer = require("nodemailer");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
   auth: {
     user: "betinvestwild@gmail.com",
-    pass: emailPassword
+    pass: "toto123456!"
   }
 });
 
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.post("/contact", (req, res) => {
-  const pseudo = req.body.pseudo;
+  console.log(req.body);
   const email = req.body.email;
-  const message = req.body.message;
-  const subject = req.body.subject;
-  const bet = req.body.bet;
+  // const message = req.body.message;
+  // const subject = req.body.subject;
+  // const bet = req.body.bet;
 
   let HelperOptions = {};
 
   HelperOptions = {
-    from: `betinvestwild@gmail.com`,
+    from: `${email}`,
     to: "betinvestwild@gmail.com",
-    subject: subject,
-    html: `<h3>Message de : ${pseudo}; ${email}</h3>
-      <p>${message}</p>`
+    subject: "subject",
+    html: `balbalbalbalbalbalb`
   };
   transporter.sendMail(HelperOptions, (error, info) => {
     if (error) {
@@ -40,6 +45,6 @@ app.get("/", function(req, res) {
   res.send("Hello World!");
 });
 
-app.listen(3000, function() {
-  console.log("Example app listening on port 3000!");
+app.listen(8000, function() {
+  console.log("Example app listening on port 8000!");
 });

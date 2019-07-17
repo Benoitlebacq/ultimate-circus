@@ -3,7 +3,6 @@ import { Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./tickets.css";
-import history from "./history";
 // import { connect } from "react-redux";
 // import { combineReducers } from "redux";
 // import { bindActionCreators } from "redux";
@@ -13,30 +12,48 @@ class Tickets extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tickets: null
+      tickets: null,
+      persons: []
     };
   }
-  goToCheckout = () => {
-    console.log("blabla");
-  };
-  addToCart = value => {
-    Swal.fire("Ticket added to your cart!", "Go to Cart icon !", "success");
-    // Swal.fire({
-    //   title: "Ticket added to your cart.",
-    //   text: "Do you want to go to checkout ?",
-    //   type: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#276949",
-    //   cancelButtonColor: "#b62828",
-    //   confirmButtonText: "Yes, go to checkout!",
-    //   cancelButtonText: "No stay on this page"
-    // }).then(result => {
-    //   if (result.value) {
-    //     history.push("/shopping");
-    //     setTimeout(this.goToCheckout(), 1500);
-    //   }
-    // });
-    this.setState({ tickets: this.state.tickets + value });
+
+  addToCart = (value, name) => {
+    console.log(name);
+    Swal.fire({
+      title: "Ticket added to your cart.",
+      text: "Do you want to go to checkout ?",
+      customClass: {
+        title: "title-class",
+        image: "image-class",
+        content: "content-class",
+        confirmButton: "confirm-button-class",
+        cancelButton: "cancel-button-class"
+      },
+      background: "#000",
+      imageUrl:
+        "https://cdn.images.dailystar.co.uk/dynamic/1/photos/15000/620x/killer-clowns-terrorising-children-near-schools-Thamesview-654332.jpg",
+      imageAlt: "Evil Clown",
+      focusCancel: true,
+      showCancelButton: true,
+      confirmButtonColor: "#276949",
+      cancelButtonColor: "#b62828",
+      confirmButtonText: "Yes, go to checkout!",
+      cancelButtonText: "No I want MORE TICKET !!"
+    }).then(result => {
+      if (result.value) {
+        setTimeout(
+          this.props.history.push("/shopping", {
+            tickets: this.state.tickets,
+            persons: this.state.persons
+          }),
+          1500
+        );
+      }
+    });
+    this.setState({
+      tickets: this.state.tickets + value,
+      persons: [...this.state.persons, name]
+    });
   };
   render() {
     return (
@@ -52,13 +69,16 @@ class Tickets extends Component {
                 to={{
                   pathname: "/shopping",
                   state: {
-                    tickets: this.state.tickets
+                    tickets: this.state.tickets,
+                    persons: this.state.persons
                   }
                 }}
                 className="item"
               >
                 <i ria-hidden="true" className="red shopping cart big icon" />
-                {this.state.tickets} €
+                {this.state.tickets === null ? null : (
+                  <span className="euros">{this.state.tickets} €</span>
+                )}
               </Link>
             </div>
           </div>
@@ -76,7 +96,7 @@ class Tickets extends Component {
                 <Button
                   animated="vertical"
                   className="red"
-                  onClick={() => this.addToCart(14)}
+                  onClick={() => this.addToCart(14, "adult")}
                 >
                   <Button.Content hidden>Shop</Button.Content>
                   <Button.Content visible>
@@ -96,7 +116,7 @@ class Tickets extends Component {
                 <Button
                   animated="vertical"
                   className="red"
-                  onClick={() => this.addToCart(8)}
+                  onClick={() => this.addToCart(8, "one eyed dude")}
                 >
                   <Button.Content hidden>Shop</Button.Content>
                   <Button.Content visible>
@@ -107,7 +127,7 @@ class Tickets extends Component {
             </div>
             <div className="ui row">
               <div className="height wide column">
-                <p className="tickets-category">Pingouin</p>
+                <p className="tickets-category">Pinguin</p>
               </div>
               <div className="six wide column">
                 <p className="price">4€</p>
@@ -116,7 +136,7 @@ class Tickets extends Component {
                 <Button
                   animated="vertical"
                   className="red"
-                  onClick={() => this.addToCart(4)}
+                  onClick={() => this.addToCart(4, "Pinguin")}
                 >
                   <Button.Content hidden>Shop</Button.Content>
                   <Button.Content visible>

@@ -13,17 +13,16 @@ export default class Home extends Component {
           className="ui fluid image"
         />
         <h3>About :</h3>
+        <p className="paragraph">
+          <span className="hellcircus">Hell circus</span> is an{" "}
+          <span className="evilcircus">evil circus</span> where you can see ALL
+          the BEST <span className="killerclown">Killer Clowns</span> in the
+          world !
+        </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          earum unde autem dolorem voluptates id similique officia harum. Culpa,
-          fugiat harum nam tempore doloribus quasi blanditiis aliquam
-          repellendus laborum pariatur?
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            cupiditate, alias culpa repudiandae adipisci sequi! Iste est esse
-            molestias distinctio nobis dolorum iure exercitationem. Sint iure
-            voluptas explicabo deleniti dolorum!
-          </p>
+          Be ready to get <span className="killed">KILLED</span> by those
+          <span className="monsters">MONSTERS</span> ! Don't be affraid, this
+          will be the best pain you'll ever feel in your entire life !
         </p>
       </div>
     );
