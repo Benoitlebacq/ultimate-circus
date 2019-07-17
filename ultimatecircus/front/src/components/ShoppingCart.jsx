@@ -76,7 +76,7 @@ export default class ShoppingCart extends Component {
                 "https://i.pinimg.com/564x/85/17/9d/85179d7cdf34ef88eeba99fc04eb42be.jpg",
               imageAlt: "Evil Clown"
             });
-            this.props.history.push("/");
+            this.props.history.push("/acts");
           })
           .catch(() => {
             Swal.fire({
