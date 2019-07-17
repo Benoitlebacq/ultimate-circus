@@ -12,8 +12,7 @@ class Tickets extends Component {
       persons: []
     };
   }
-
-  addToCart = (value, name) => {
+  alertingShopping = () => {
     Swal.fire({
       title: "Ticket added to your cart.",
       text: "Do you want to go to checkout ?",
@@ -45,6 +44,8 @@ class Tickets extends Component {
         );
       }
     });
+  };
+  addToCart = (value, name) => {
     this.setState({
       tickets: this.state.tickets + value,
       persons: [...this.state.persons, name]
@@ -59,22 +60,12 @@ class Tickets extends Component {
               <h1>TICKETS</h1>
             </div>
             <div className="two wide column">
-              <Link
-                exact
-                to={{
-                  pathname: "/shopping",
-                  state: {
-                    tickets: this.state.tickets,
-                    persons: this.state.persons
-                  }
-                }}
-                className="item"
-              >
+              <button onClick={() => this.alertingShopping()} className="item">
                 <i ria-hidden="true" className="red shopping cart big icon" />
                 {this.state.tickets === null ? null : (
                   <span className="euros">{this.state.tickets} €</span>
                 )}
-              </Link>
+              </button>
             </div>
           </div>
         </div>
