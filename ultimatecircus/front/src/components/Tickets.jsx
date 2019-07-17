@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Icon } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./tickets.css";
 

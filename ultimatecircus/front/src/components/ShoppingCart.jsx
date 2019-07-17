@@ -137,7 +137,7 @@ export default class ShoppingCart extends Component {
           {(adultsCount = this.peopleCaclulate(
             this.props.location.state.persons,
             "adult"
-          ))
+          )) === true
             ? adultsCount
             : null}{" "}
           {adultsCount ? "adult(s) ," : null}
@@ -145,7 +145,7 @@ export default class ShoppingCart extends Component {
           {(pinguinsCount = this.peopleCaclulate(
             this.props.location.state.persons,
             "Pinguin"
-          ))
+          )) === true
             ? pinguinsCount
             : null}{" "}
           {pinguinsCount ? "pinguin(s) ," : null}
@@ -153,7 +153,7 @@ export default class ShoppingCart extends Component {
           {(oneEyedCount = this.peopleCaclulate(
             this.props.location.state.persons,
             "one eyed dude"
-          ))
+          )) === true
             ? oneEyedCount
             : null}{" "}
           {oneEyedCount ? "One eyed dude(s)," : null}
