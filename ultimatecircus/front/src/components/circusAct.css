@@ -17,3 +17,8 @@
   color: black;
   font-family: "Special Elite", cursive;
 }
+.columnflex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}

@@ -13,12 +13,6 @@ const CircusCards = props => (
       </Card.Meta>
       <Card.Description>{props.description}</Card.Description>
     </Card.Content>
-    <Card.Content extra>
-      <a>
-        <Icon name="user" />
-        22 Friends
-      </a>
-    </Card.Content>
   </Card>
 );
 
