@@ -1,0 +1,40 @@
+.tickets-category {
+  font-size: 2.4vh;
+  font-weight: bold;
+  font-family: "Nosifer", cursive;
+  padding-bottom: 15px;
+}
+.ticket-comp {
+  padding-top: 15px;
+}
+
+.price {
+  font-size: 2.3vh;
+  font-weight: bold;
+  font-family: "Special Elite", cursive;
+}
+
+.lines {
+  padding-top: 10px;
+}
+.affraid {
+  margin-top: 25px;
+}
+.title-class {
+  color: white;
+  font-weight: bold;
+}
+.content-class {
+  color: white;
+}
+
+.euros {
+  font-size: 2.3vh;
+  font-weight: bold;
+  color: black;
+  font-family: "Special Elite", cursive;
+}
+.item {
+  background: none;
+  border: none;
+}

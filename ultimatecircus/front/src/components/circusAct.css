@@ -1,0 +1,24 @@
+.card-align {
+  display: flex;
+  border: 2px solid black;
+}
+.typocards {
+  font-size: 3.5vh;
+  font-weight: bold;
+  font-family: "Creepster", cursive;
+  padding-bottom: 15px;
+  color: red;
+  text-shadow: 2px 2px 2.5px black;
+}
+
+.ability {
+  font-size: 2.3vh;
+  font-weight: bold;
+  color: black;
+  font-family: "Special Elite", cursive;
+}
+.columnflex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
