@@ -3,10 +3,6 @@ import { Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./tickets.css";
-// import { connect } from "react-redux";
-// import { combineReducers } from "redux";
-// import { bindActionCreators } from "redux";
-// import { shoppin } from "../actions";
 
 class Tickets extends Component {
   constructor(props) {
@@ -18,7 +14,6 @@ class Tickets extends Component {
   }
 
   addToCart = (value, name) => {
-    console.log(name);
     Swal.fire({
       title: "Ticket added to your cart.",
       text: "Do you want to go to checkout ?",

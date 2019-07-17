@@ -32,9 +32,11 @@ app.post("/contact", (req, res) => {
     from: `${email}`,
     to: "betinvestwild@gmail.com",
     subject: `Hell Circus order : ${tickets} €`,
-    html: `order total : ${tickets} <br/>
+    html: `Total order : ${tickets} €<br/>
     name : ${name}  <br/>
-    adults : ${adult}
+    total adults : ${adult} * ${14} = ${14 * adult} €<br/>
+    total pinguins : ${pinguin}  * ${4} = ${4 * pinguin} €<br/>
+    total One Eyed Dudes : ${oneEyed}  * ${8} = ${8 * oneEyed} €
     
     `
   };
@@ -53,9 +55,10 @@ app.post("/contact", (req, res) => {
     subject: `Hell Circus order : ${tickets} €`,
     html: `Hi, ${name}, this is an automatic email, do not repply <br/>
     total order : ${tickets} € <br/>
-    total adults : ${adult} <br/>
-    total pinguins : ${pinguin} <br/>
-    total One Eyed Dudes : ${oneEyed}
+    total adults : ${adult} * ${14} = ${14 * adult} €<br/>
+    total pinguins : ${pinguin}  * ${4} = ${4 * pinguin} €<br/>
+    total One Eyed Dudes : ${oneEyed}  * ${8} = ${8 * oneEyed} € <br/>
+    <br/>
     Your order has been placed , you must now send monney via paypal to YOUWILLDIE@hellcircus.com <br/>
     Once we got the monney you order will be validate and you'll receive a confirmation email<br/>
     <br/>

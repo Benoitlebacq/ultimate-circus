@@ -50,6 +50,14 @@ export default class ShoppingCart extends Component {
             adult: this.peopleCaclulate(
               this.props.location.state.persons,
               "adult"
+            ),
+            oneEyed: this.peopleCaclulate(
+              this.props.location.state.persons,
+              "one eyed dude"
+            ),
+            pinguin: this.peopleCaclulate(
+              this.props.location.state.persons,
+              "Pinguin"
             )
           })
           .then(() => {
@@ -115,12 +123,15 @@ export default class ShoppingCart extends Component {
     ) : (
       <div>
         <h3 className="welldone">Well Done !</h3>
-        <img
-          className="happy-clown-image"
-          src="https://i.pinimg.com/originals/37/02/22/3702228412b965a772d087f956c196c1.jpg"
-          alt="happy evil clown"
-          w
-        />
+        <div className="clowncontainer">
+          <img
+            className="happy-clown-image"
+            src="https://i.pinimg.com/originals/37/02/22/3702228412b965a772d087f956c196c1.jpg"
+            alt="happy evil clown"
+            w
+          />
+        </div>
+
         <p className="sumup">Sum'up your order : </p>
         <div className="ticketsBought">
           {(adultsCount = this.peopleCaclulate(
@@ -131,22 +142,27 @@ export default class ShoppingCart extends Component {
             : null}{" "}
           {adultsCount ? "adult(s) ," : null}
           <br />
-          {(pinguinsCount = this.props.location.state.persons.filter(dude => {
-            return dude === "Pinguin";
-          }).length)
+          {(pinguinsCount = this.peopleCaclulate(
+            this.props.location.state.persons,
+            "Pinguin"
+          ))
             ? pinguinsCount
             : null}{" "}
           {pinguinsCount ? "pinguin(s) ," : null}
           <br />
-          {(oneEyedCount = this.props.location.state.persons.filter(dude => {
-            return dude === "one eyed dude";
-          }).length)
+          {(oneEyedCount = this.peopleCaclulate(
+            this.props.location.state.persons,
+            "one eyed dude"
+          ))
             ? oneEyedCount
             : null}{" "}
           {oneEyedCount ? "One eyed dude(s)," : null}
         </div>
         <div className="button-position">
-          <button className="ui secondary button" onClick={this.confirmCommit}>
+          <button
+            className="ui secondary button buttoncentered"
+            onClick={this.confirmCommit}
+          >
             Commit to buy
           </button>
         </div>

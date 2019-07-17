@@ -1,6 +1,6 @@
 .welldone {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 2px;
   font-family: "Creepster", cursive;
   color: red;
   font-size: 5vh;
@@ -18,6 +18,10 @@
 }
 .happy-clown-image {
   width: 40vh;
+  margin: 0 auto;
+}
+.clowncontainer {
+  display: flex;
 }
 
 .empty-cart {
@@ -40,10 +44,12 @@
   font-weight: bold;
   text-align: center;
 }
-
+.buttoncentered {
+  margin: 0 auto !important;
+}
 .button-position {
-  position: relative;
-  margin: auto;
+  margin-top: 10px;
+  display: flex;
 }
 .title-confirm-class {
   font-family: "Creepster", cursive;
