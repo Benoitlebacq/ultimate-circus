@@ -12,10 +12,11 @@ const history = createBrowserHistory();
 
 class App extends React.Component {
   state = {
-    email: ""
+    email: "",
+    name: ""
   };
-  getEmail = email => {
-    this.setState({ email: email });
+  getEmail = (email, name) => {
+    this.setState({ email: email, name: name });
   };
   render() {
     return (
@@ -28,7 +29,11 @@ class App extends React.Component {
             <Route
               path="/shopping"
               render={props => (
-                <ShoppingCart {...props} email={this.state.email} />
+                <ShoppingCart
+                  {...props}
+                  email={this.state.email}
+                  name={this.state.name}
+                />
               )}
             />
             <Route path="/acts" exact component={CircusAct} />

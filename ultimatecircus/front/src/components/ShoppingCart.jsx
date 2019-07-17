@@ -10,6 +10,11 @@ export default class ShoppingCart extends Component {
       tickets: null
     };
   }
+  peopleCaclulate = (person, type) => {
+    return person.filter(dude => {
+      return dude === type;
+    }).length;
+  };
   componentDidMount() {
     console.log("");
     this.setState({ tickets: this.props.location.state.tickets });
@@ -17,9 +22,9 @@ export default class ShoppingCart extends Component {
   confirmCommit = () => {
     Swal.fire({
       title: `An email will be send to ${this.props.email}`,
-      text: "sure ?",
+      text: "ReADy to BUy ?",
       customClass: {
-        title: "title-class",
+        title: "title-confirm-class",
         image: "image-class",
         content: "content-class",
         confirmButton: "confirm-button-class",
@@ -37,17 +42,23 @@ export default class ShoppingCart extends Component {
       cancelButtonText: "I'm TOO SCaRE !!"
     }).then(result => {
       if (result.value) {
-        console.log("okok");
         axios
           .post(`http://localhost:8000/contact`, {
-            email: "blablab"
+            email: this.props.email,
+            tickets: this.props.location.state.tickets,
+            name: this.props.name,
+            adult: this.peopleCaclulate(
+              this.props.location.state.persons,
+              "adult"
+            )
           })
           .then(() => {
-            console.log("ours ok");
             Swal.fire({
-              title: `CoNFIrmATIon emAiL hAS bEEn SEnT`,
+              title: `thanks for your order ${this.props.name}`,
+              text: `CoNFIrmATIon emAiL hAS bEEn SEnT`,
               customClass: {
-                title: "title-class",
+                text: "text-confirm-class",
+                title: "title-confirm-class",
                 image: "image-class",
                 content: "content-class"
               },
@@ -66,7 +77,7 @@ export default class ShoppingCart extends Component {
               background: "#000",
               confirmButtonColor: "#b62828",
               customClass: {
-                title: "title-class",
+                title: "title-confirm-class",
                 image: "image-class",
                 content: "content-class",
                 confirmButton: "cancel-button-class"
@@ -110,11 +121,12 @@ export default class ShoppingCart extends Component {
           alt="happy evil clown"
           w
         />
-        <p className="sumup">Sumup your order : </p>
+        <p className="sumup">Sum'up your order : </p>
         <div className="ticketsBought">
-          {(adultsCount = this.props.location.state.persons.filter(dude => {
-            return dude === "adult";
-          }).length)
+          {(adultsCount = this.peopleCaclulate(
+            this.props.location.state.persons,
+            "adult"
+          ))
             ? adultsCount
             : null}{" "}
           {adultsCount ? "adult(s) ," : null}
@@ -133,8 +145,6 @@ export default class ShoppingCart extends Component {
             : null}{" "}
           {oneEyedCount ? "One eyed dude(s)," : null}
         </div>
-        <div className="email">Email : {this.props.email}</div>
-
         <div className="button-position">
           <button className="ui secondary button" onClick={this.confirmCommit}>
             Commit to buy

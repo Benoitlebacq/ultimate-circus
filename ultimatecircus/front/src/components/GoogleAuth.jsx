@@ -54,14 +54,19 @@ class GoogleAuth extends Component {
       );
     }
   };
-  getEmail = email => {
-    this.props.getEmail(email);
+  getEmail = (email, name) => {
+    this.props.getEmail(email, name);
   };
   render() {
     return (
       <div className="google-logo">
         {this.renderAuthButton()}
-        {this.auth ? this.getEmail(this.auth.currentUser.Ab.w3.U3) : null}
+        {this.auth
+          ? this.getEmail(
+              this.auth.currentUser.Ab.w3.U3,
+              this.auth.currentUser.Ab.w3.ig
+            )
+          : null}
       </div>
     );
   }

@@ -45,3 +45,17 @@
   position: relative;
   margin: auto;
 }
+.title-confirm-class {
+  font-family: "Creepster", cursive;
+  color: rgb(221, 216, 216);
+  font-size: 3vh;
+  text-shadow: 2px 2px 2.5px red;
+  text-align: center;
+}
+.text-confirm-class {
+  font-family: "Creepster", cursive;
+  color: rgb(221, 216, 216);
+  font-size: 3vh;
+  text-shadow: 2px 2px 2.5px red;
+  text-align: center;
+}

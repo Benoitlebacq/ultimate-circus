@@ -20,19 +20,50 @@ app.use(bodyParser.json());
 app.post("/contact", (req, res) => {
   console.log(req.body);
   const email = req.body.email;
-  // const message = req.body.message;
-  // const subject = req.body.subject;
-  // const bet = req.body.bet;
+  const tickets = req.body.tickets;
+  const name = req.body.name;
+  const adult = req.body.adult;
+  const pinguin = req.body.pinguin;
+  const oneEyed = req.body.oneEyed;
 
-  let HelperOptions = {};
+  let placeOrder = {};
 
-  HelperOptions = {
+  placeOrder = {
     from: `${email}`,
     to: "betinvestwild@gmail.com",
-    subject: "subject",
-    html: `balbalbalbalbalbalb`
+    subject: `Hell Circus order : ${tickets} €`,
+    html: `order total : ${tickets} <br/>
+    name : ${name}  <br/>
+    adults : ${adult}
+    
+    `
   };
-  transporter.sendMail(HelperOptions, (error, info) => {
+  transporter.sendMail(placeOrder, (error, info) => {
+    if (error) {
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+  let receiveOrderConfirmation = {};
+
+  receiveOrderConfirmation = {
+    from: "betinvestwild@gmail.com",
+    to: `${email}`,
+    subject: `Hell Circus order : ${tickets} €`,
+    html: `Hi, ${name}, this is an automatic email, do not repply <br/>
+    total order : ${tickets} € <br/>
+    total adults : ${adult} <br/>
+    total pinguins : ${pinguin} <br/>
+    total One Eyed Dudes : ${oneEyed}
+    Your order has been placed , you must now send monney via paypal to YOUWILLDIE@hellcircus.com <br/>
+    Once we got the monney you order will be validate and you'll receive a confirmation email<br/>
+    <br/>
+    Have a good Death,<br/>
+    the HELL CIRCUS TEAM
+    `
+  };
+  transporter.sendMail(receiveOrderConfirmation, (error, info) => {
     if (error) {
       res.sendStatus(500);
     } else {

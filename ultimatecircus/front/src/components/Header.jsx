@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import GoogleAuth from "./GoogleAuth";
 
 export default class Header extends Component {
-  getEmail = email => {
-    this.props.getEmail(email);
+  getEmail = (email, name) => {
+    this.props.getEmail(email, name);
   };
   render() {
     return (
