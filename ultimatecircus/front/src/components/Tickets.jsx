@@ -141,12 +141,4 @@ class Tickets extends Component {
     );
   }
 }
-
-/* const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(shoppin, dispatch)
-});
-const mapStateToProps = state => {
-  return { inBasket: state.shop };
-};
- */
 export default Tickets;
