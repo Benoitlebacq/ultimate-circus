@@ -137,7 +137,7 @@ export default class ShoppingCart extends Component {
           {(adultsCount = this.peopleCaclulate(
             this.props.location.state.persons,
             "adult"
-          )) === true
+          ))
             ? adultsCount
             : null}{" "}
           {adultsCount ? "adult(s) ," : null}
