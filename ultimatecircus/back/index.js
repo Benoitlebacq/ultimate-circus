@@ -3,6 +3,7 @@ const app = express();
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const { portnumber, db } = require("./conf");
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -18,7 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post("/contact", (req, res) => {
-  console.log(req.body);
   const email = req.body.email;
   const tickets = req.body.tickets;
   const name = req.body.name;
@@ -73,12 +73,25 @@ app.post("/contact", (req, res) => {
       res.sendStatus(200);
     }
   });
+
+  db.query(
+    "INSERT INTO sells (nom , email , amount) value ( ? , ? , ?) ",
+
+    [name, email, tickets],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).send(results);
+      }
+    }
+  );
 });
 
 app.get("/", function(req, res) {
   res.send("Hello World!");
 });
 
-app.listen(8000, function() {
+app.listen(portnumber, function() {
   console.log("Example app listening on port 8000!");
 });
